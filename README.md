@@ -7,6 +7,9 @@ Documentation: http://socialinviter.com/#!/cidoc
 
 Interactive console: http://socialinviter.com/#!/console
 
+Customize look & feel: http://socialinviter.com/#!/account
+
+
 ```
 $(document).ready(function () {
     socialinviter.load({
