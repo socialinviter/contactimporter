@@ -7,6 +7,7 @@ Documentation: https://socialinviter.com/inviter.aspx#!/ciplugindoc
 
 Trial license: https://socialinviter.com/inviter.aspx#!/trial
 
+Download code for ASP.net, PHP and JAVA: https://socialinviter.com/download.aspx
 
 #Settings:
 
