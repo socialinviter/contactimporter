@@ -11,6 +11,12 @@ Trial license: https://socialinviter.com/inviter.aspx#!/trial
 #Settings:
 
 ```
+    <div class="socialinviter" type="contactimporter"></div>
+```
+
+To initialize the plugin
+
+```
     var licenses = "Your license key here"; //replace your license key
     var SIConfiguration = {
         "path": {
