@@ -1,15 +1,49 @@
 <html>
 <head>
-    <title>Authenticating user</title>
-	<script type="text/javascript" src="//socialinviter.com/assets/js/libraries/jquery.js"></script>
-    <script type="text/javascript" src="oauth.js"></script>
+    <title>Authenticating...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//socialinviter.com/assets/js/plugins/all.js" id="apiscript"></script>
 </head>
-<body>
+<body style="padding:0px;margin:0px">
+    <div class="apimissing" style="display:none">
+        <h1 class="apimissingtitle">Missing <span class="titleservice"></span> APP configuration</h1>
+
+        <table style="width:550px;" class="marTop55" align="center" cellpadding"10px" cellspacing="10px">
+            <tr>
+                <td colspan="2">
+                    <div class="guide">API keys were not added for <span class="titleservice"></span>, to make this service work please create an APP at <span class="titleservice"></span> by going here <a href="" id="linkapikey" target="_blank">here</a>. Need help in configuring? please view <a href="" id="linkscreenshot" target="_blank">screenshots</a> on how to create API key. </div>
+                </td>
+            </tr>
+            <tr class="apierror">
+                <td colspan="2"><div class="apierrormsg">Please enter API key, API secret and callback url</div></td>
+            </tr>
+            <tr>
+                <td class="apitd">API key</td>
+                <td class="valuetd"><input type="text" id="apikey" /></td>
+            </tr>
+            <tr>
+                <td class="apitd">Secret key</td>
+                <td class="valuetd"><input type="text" id="secretkey" /></td>
+            </tr>
+            <tr>
+                <td class="apitd">Callback url</td>
+                <td class="valuetd"><input type="text" id="callbackurl" /></td>
+            </tr>
+            <tr>
+                <td class="apitd"></td>
+                <td><div class="addbtn">Add</div></td>
+            </tr>
+            <tr>
+                <td class="apitd"></td>
+                <td class="apimissingnote">Note: You can always change the configuration by <a href="//socialinviter.com/#!/account" target="_blank">login to your account</a></td>
+            </tr>
+        </table>
+    </div>
 	<div class="loading" id="loadingStatus">
 		<span class="lbl" id="loadingtext">Authenticating</span>
-		<span><img src="//socialinviter.com/assets/img/icons/processing.gif" alt="Processing..."/></span>
+		<span><img src="//socialinviter.com/assets/img/icons/processing.gif"></span>
 	</div>
 </body>
 </html>
-
 

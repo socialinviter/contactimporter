@@ -1,11 +1,69 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="contactimporter.css">
-	<script src="//socialinviter.com/assets/js/libraries/jquery.js"></script>
-	<script type="text/javascript" id="apiscript" src="contactimporter.js?key=lic_a143e4ae-a956-4ca9-9646-ce02f"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 </head>
 <body>
-<div id="socialinviter-CI"></div><br /><!-- The 'socialinviter-CI-template' div must be placed outside the form tag --><div id="socialinviter-CI-template"></div>
+<!--Add it inside the body tag -->
+<div class="socialinviter" type="contactimporter"></div>
+
+<h3 class="fl break">Loaded contacts</h3>
+<textarea id="txtloadedContacts" style="width:600px;height: 160px;clear: both;float: left;"></textarea>
+
+<h3 class="fl break">Selected contacts</h3>
+<textarea id="txtselectedcontacts" style="width:600px;height: 160px;clear: both;float: left;"></textarea>
+
+<script type="text/javascript">
+    
+    var proceedCallback = function (event, service) {
+        var contacts=[];
+        var data = socialinviter.contactimporter.getSelectedContacts().addressbook;
+        var len = data.length;
+        for(var i=0;i<len;i++){
+            if(i!=0){
+                contacts += ", "
+            }
+            contacts +=  data[i].name.first_name + " " + data[i].name.last_name;
+            contacts += "< "+ data[i].email[0] + " > ";
+        }
+        $("#txtselectedcontacts").html(unescape(contacts));
+    }
+    var loadedCallback = function (service, data) {
+        //Contacts will be available in data object
+        var len = data.length;
+        var contacts="";
+        for(var i=0;i<len;i++){
+            if(i!=0){
+                contacts += ", "
+            }
+            contacts +=  data[i].name.first_name + " " + data[i].name.last_name;
+            contacts += "< "+ data[i].email[0] + " > ";
+        }
+        $("#txtloadedContacts").html(unescape(contacts));
+    }
+    var sendCallback = function (event, service, recipients) {
+        socialinviter.modalSI.showSuccessMessage("Success: We are not sending this email to the selected recipients, please use your SMTP to send emails");
+    }
+
+    
+    var licenses = "Your license key here"; //replace your license key
+    var SIConfiguration = {
+        "path": {
+            "authpage": "http://localhost:8080/oauth.html" //replace the web url of oauth.html
+        },
+        "callbacks": {
+            "loaded": loadedCallback,
+            "proceed": proceedCallback,
+            "send": sendCallback
+        }
+    }
+    var fileref=document.createElement("script");fileref.setAttribute("type","text/javascript");
+    fileref.setAttribute("id","apiscript");fileref.setAttribute("src","//socialinviter.com/all.js?keys="+licenses);
+    try{document.body.appendChild(fileref)}catch(a){document.getElementsByTagName("head")[0].appendChild(fileref);}
+    var loadInitFlg=0,socialinviter,loadConf=function(){window.setTimeout(function(){$(document).ready(function(){loadInitFlg++;
+    socialinviter?socialinviter.load(SIConfiguration):15>loadInitFlg&&window.setTimeout(loadConf,200)})},
+    250)};window.setTimeout(loadConf,200);
+</script>
+
 </body>
 </html>
 
