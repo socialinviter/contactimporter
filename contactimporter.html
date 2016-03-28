@@ -7,10 +7,10 @@
 <div class="socialinviter" type="contactimporter"></div>
 
 <h3 class="fl break">Loaded contacts</h3>
-<textarea id="txtloadedContacts" style="width:600px;height: 160px;clear: both;float: left;"></textarea>
+<textarea id="txtloadedContacts"></textarea>
 
 <h3 class="fl break">Selected contacts</h3>
-<textarea id="txtselectedcontacts" style="width:600px;height: 160px;clear: both;float: left;"></textarea>
+<textarea id="txtselectedcontacts"></textarea>
 
 <script type="text/javascript">
     
@@ -44,7 +44,7 @@
         socialinviter.modalSI.showSuccessMessage("Success: We are not sending this email to the selected recipients, please use your SMTP to send emails");
     }
 
-    
+
     var licenses = "Your license key here"; //replace your license key
     var SIConfiguration = {
         "path": {
