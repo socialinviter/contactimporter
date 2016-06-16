@@ -57,7 +57,7 @@
         }
     }
     var fileref=document.createElement("script");fileref.setAttribute("type","text/javascript");
-    fileref.setAttribute("id","apiscript");fileref.setAttribute("src","//socialinviter.com/all.js?keys="+licenses);
+    fileref.setAttribute("id","apiscript");fileref.setAttribute("src","//socialinviter.com/all-latest.js?keys="+licenses);
     try{document.body.appendChild(fileref)}catch(a){document.getElementsByTagName("head")[0].appendChild(fileref);}
     var loadInitFlg=0,socialinviter,loadConf=function(){window.setTimeout(function(){$(document).ready(function(){loadInitFlg++;
     socialinviter?socialinviter.load(SIConfiguration):15>loadInitFlg&&window.setTimeout(loadConf,200)})},
